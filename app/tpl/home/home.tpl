@@ -1,0 +1,1 @@
+<div>{{ mainTitle }}</div>
