@@ -1,0 +1,47 @@
+.top {
+	padding: 10px 0 10px 0;
+	background-color: #64B5F6;
+	color: #fff;
+}
+
+@media only screen 
+and (min-device-width : 768px) 
+and (orientation : landscape) {
+	.text-to-right {
+		text-align: right;
+	}
+}
+
+nav a {
+	margin-right: 20px;
+	color: #fff;
+}
+nav a:hover {
+	text-decoration: none;
+}
+
+/*product*/
+
+.product-section a:hover {
+	text-decoration: none;
+	color: #23527c;
+}
+
+.product-section a {
+	color: #fff;
+}
+
+.product-section {
+	margin-top: 20px;
+	color: #fff;
+}
+.product-elem {
+	padding: 10px;
+	background-color: #1E88E5;
+	min-height: 150px;
+	border: 1px solid #fff;
+}
+
+.product-title {
+
+}
