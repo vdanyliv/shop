@@ -1,7 +1,16 @@
 export default class HomeController {
-	constructor($scope) {
-		$scope.mainTitle = 'Welcome to my test page!';
+	constructor(productApiServise) {
+		this.productApiServise = productApiServise;
+		this.product = [];
+
+		this.loadProducts();
+	}
+
+	loadProducts() {
+		this.productApiServise.getProducts(3).then((data) => {
+			this.product = data;
+		});
 	}
 }
 
-HomeController.$inject = [ '$scope' ];
+HomeController.$inject = [ 'productApiServise'];
