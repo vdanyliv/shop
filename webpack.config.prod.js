@@ -31,6 +31,9 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: './app/tpl', to: './tpl' },
             { from: './app/index.html', to: './' }
-        ])
+        ]),
+        new webpack.DefinePlugin({
+            API_URL: JSON.stringify('http://localhost:9000')
+        })
     ]
 };

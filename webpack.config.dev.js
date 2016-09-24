@@ -2,9 +2,11 @@ var webpack = require("webpack");
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-	entry: './app/main.js',
+	entry: {
+        app: ['./app/main.js']
+    },
 	output: {
-		path: './build/',
+		path: __dirname + '/build',
 		filename: 'app.bundle.js'
 	},
 	module: {
@@ -29,7 +31,10 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: './app/tpl', to: './tpl' },
             { from: './app/index.html', to: './' }
-        ])
+        ]),
+        new webpack.DefinePlugin({
+            API_URL: JSON.stringify('http://localhost:9001')
+        })
     ],
     devServer: {
         contentBase: './build/',
