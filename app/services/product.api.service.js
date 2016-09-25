@@ -31,16 +31,23 @@ export default function productApi ($http) {
 		);
 	 };
 
-	 apiMethods.getProduct = () => {
-	 	console.error(2);
-	 	console.error($http);
+	 apiMethods.getProduct = (id) => {
+	 	return $http({
+	 		method: 'POST',
+	 		url: apiList.getProduct,
+	 		withCredentials: true,
+	 		data: {
+	 			id: id
+	 		}
+	 	}).then(
+	 		function successCallback(response) {
+	 			return response.data;
+	 		},
+		 	function errorCallback() {
+		 		console.error('Error while requesting to ' + apiList.getProduct);
+		 	}
+		);
 	 };
-
-	 apiMethods.buyProduct = () => {
-	 	console.error(3);
-	 	console.error($http);
-	 };
-
 
 	 return apiMethods;
 }
