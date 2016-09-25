@@ -15,8 +15,9 @@ if (env === 'dev') {
     webpackConfigDev.entry.app.unshift('webpack-dev-server/client?http://localhost:9000/', 'webpack/hot/dev-server');
     let compiler = webpack(webpackConfigDev);
     let jsServer = new webpackDevServer(compiler, {
-        hot: true,
         contentBase: './build/',
+        historyApiFallback: true,
+        hot: true,
         quiet: false,
         stats: {
           colors: true
@@ -35,7 +36,7 @@ else {
 
 /*express*/
 
-if (env === 'prod') app.use(express.static('./build/'));
+if (env === 'prod') app.use(express.static(__dirname + '/build/'));
 if (env === 'dev') {
     app.use(function(req, res, next) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:9000');
