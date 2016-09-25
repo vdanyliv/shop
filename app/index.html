@@ -6,7 +6,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<div class="container" ng-view></div>
+	<div class="container">
+		<div class="row top">
+			<div class="col-xs-6 col-sm-6">Welcome to "I'm interested"</div>
+		</div>
+		<div class="row top">
+			<div class="cold-xs-16 col-sm-6 col-md-12">
+				<nav>
+					<a href="/">Home</a>
+					<a href="/product-list">Product list</a>
+					<a href="/account">My account</a>
+				</nav>
+			</div>
+		</div>
+		<div ng-view></div>
+	</div>
 	<script type="text/javascript" src="app.bundle.js"></script>
 </body>
 </html>
