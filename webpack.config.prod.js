@@ -30,10 +30,12 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new CopyWebpackPlugin([
             { from: './app/tpl', to: './tpl' },
-            { from: './app/index.html', to: './' }
+            { from: './app/index.html', to: './' },
+            { from: './app/common', to: './common' }
         ]),
         new webpack.DefinePlugin({
-            API_URL: JSON.stringify('http://localhost:9000')
+            API_URL: JSON.stringify('http://localhost:9000'),
+            IMG_URL: JSON.stringify('http://localhost:9000')
         })
     ]
 };
