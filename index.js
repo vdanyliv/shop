@@ -35,8 +35,6 @@ else {
 }
 
 /*express*/
-
-if (env === 'prod') app.use(express.static(__dirname + '/build/'));
 if (env === 'dev') {
     app.use(function(req, res, next) {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:9000');
@@ -46,6 +44,7 @@ if (env === 'dev') {
         next();
     });
 }
+
 app.use(bodyParser.urlencoded({ extended:true }));
 app.use(bodyParser.json());
 
@@ -53,6 +52,14 @@ let port = process.env.PORT || env !== 'prod' ? 9001 : 9000;
 let apiModule = require('./server/api');
 
 app.use('/api', apiModule);
+
+if (env === 'prod') {
+    app.use(express.static(__dirname + '/build/'));
+    
+    app.get('*', function (req, res) {
+        res.sendFile(__dirname + '/build/index.html');
+    });
+}
 
 app.listen(port, '0.0.0.0', function() {
 	console.error('Back-end listen: localhost:' + port);
