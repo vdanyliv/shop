@@ -4,14 +4,6 @@
 	color: #fff;
 }
 
-@media only screen 
-and (min-device-width : 768px) 
-and (orientation : landscape) {
-	.text-to-right {
-		text-align: right;
-	}
-}
-
 nav a {
 	margin-right: 20px;
 	color: #fff;
@@ -20,7 +12,7 @@ nav a:hover {
 	text-decoration: none;
 }
 
-/*product*/
+/*product list home*/
 
 .product-section a:hover {
 	text-decoration: none;
@@ -42,6 +34,58 @@ nav a:hover {
 	border: 1px solid #fff;
 }
 
-.product-title {
+/*product details*/
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 250px) 
+and (max-device-width : 480px) {
+	.col-xs-4 {
+		float:none;
+		width: 100%;
+	}
+	.col-xs-8 {
+		float: none;
+		width: 100%;
+	}
+}
 
+@media only screen 
+and (min-device-width : 481px) 
+and (max-device-width : 723px) {
+	.col-xs-4 {
+		width: 33.33%;
+	}
+}
+
+/* Desktops and laptops ----------- */
+.product-details {
+	padding: 0 5px 0 5px;
+	margin-top: 20px;
+	color: #000;
+}
+
+.order-section {
+	padding: 10px 0 0 0;
+}
+
+.order-section .order-form {
+	padding: 20px 0 0 0;
+}
+
+/*profile*/
+.account-details {
+	padding: 0 5px 0 5px;
+	margin-top: 20px;
+	color: #000;
+}
+
+.info-updated {
+	padding: 10px;
+	font-size: 12px;
+}
+
+/*order*/
+.order-item {
+	padding: 5px;
+	margin-bottom: 20px;
 }
