@@ -10,4 +10,6 @@ Simple application that emulate online store.
 <b>Dev environment:</b> `npm run dev`
 
 <b>How to test:</b></br>
-Open in browser `localhost:9000`
+Open in browser `localhost:9000`</br></br>
+<b>Example on heroku.com:</b></br>
+Open in browser `https://shop-app-desktop.herokuapp.com/`</br></br>
