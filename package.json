@@ -7,6 +7,9 @@
     "dev": "USER_ENV=dev node index.js",
     "prod": "USER_ENV=prod node index.js"
   },
+  "engines": {
+    "node": "6.6.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vdanyliv/shop.git"
