@@ -1,5 +1,6 @@
 let webpack = require('webpack');
 let webpackDevServer = require('webpack-dev-server');
+let gutil = require("gulp-util");
 let webpackConfigProd = require('./webpack.config.prod');
 let webpackConfigDev = require('./webpack.config.dev');
 
@@ -29,8 +30,12 @@ if (env === 'dev') {
     });
 }
 else {
-    webpack(webpackConfigProd, function() {
-        console.error('bundle created');
+    webpack(webpackConfigProd, function(err, stats) {
+        if(err) throw new gutil.PluginError("webpack", err);
+        gutil.log('[webpack:build]', stats.toString({
+            chunks: false,
+            colors: true
+        }));
     });
 }
 
@@ -43,17 +48,18 @@ if (env === 'dev') {
         res.setHeader('Access-Control-Allow-Credentials', true);
         next();
     });
+    
+    app.set('port', (process.env.PORT || 9001));
 }
 
 app.use(bodyParser.urlencoded({ extended:true }));
 app.use(bodyParser.json());
 
-let port = process.env.PORT || env !== 'prod' ? 9001 : 9000;
 let apiModule = require('./server/api');
-
 app.use('/api', apiModule);
 
 if (env === 'prod') {
+    app.set('port', (process.env.PORT || 9000));
     app.use(express.static(__dirname + '/build/'));
     
     app.get('*', function (req, res) {
@@ -61,6 +67,6 @@ if (env === 'prod') {
     });
 }
 
-app.listen(port, '0.0.0.0', function() {
-	console.error('Back-end listen: localhost:' + port);
+app.listen(app.get('port'), function() {
+    console.error('listening port: ' + app.get('port'));
 });
