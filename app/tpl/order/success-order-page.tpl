@@ -12,7 +12,7 @@
 		<div><b>Arrive date:</b> {{ value.date | date:'MM/dd/yyyy' }} and time {{ value.time | date: 'HH:mm' }}</div>
 	</div>
 
-	<div class="text-left">
+	<div class="col-md-12 text-left">
 		<p class="info-updated bg-primary" ng-if="order.basketService.length > 0">
 			Your information registered, we call you if we need more details from you.<br/>Thanks for your order.
 		</p>
